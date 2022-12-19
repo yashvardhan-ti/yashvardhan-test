@@ -1,0 +1,101 @@
+/**
+ * this is the main configuration file of your bit workspace.
+ * for full documentation, please see: https://bit.dev/docs/workspace/workspace-configuration
+ **/{
+  "$schema": "https://static.bit.dev/teambit/schemas/schema.json",
+  /**
+   * main configuration of the Bit workspace.
+   **/
+  "teambit.workspace/workspace": {
+    /**
+     * the name of the component workspace. used for development purposes.
+     **/
+    "name": "yashvardhan-test",
+    /**
+     * set the icon to be shown on the Bit server.
+     **/
+    "icon": "https://static.bit.dev/bit-logo.svg",
+    /**
+     * default directory to place a component during `bit import` and `bit create`.
+     * the following placeholders are available:
+     * name - component name includes namespace, e.g. 'ui/button'.
+     * scopeId - full scope-id includes the owner, e.g. 'teambit.compilation'.
+     * scope - scope name only, e.g. 'compilation'.
+     * owner - owner name in bit.dev, e.g. 'teambit'.
+     **/
+    "defaultDirectory": "{scope}/{name}",
+    /**
+     * default scope for all components in workspace.
+     **/
+    "defaultScope": "tiui.remote"
+  },
+  /**
+   * main configuration for component dependency resolution.
+   **/
+  "teambit.dependencies/dependency-resolver": {
+    /**
+     * choose the package manager for Bit to use. you can choose between 'yarn', 'pnpm'
+     */
+    "packageManager": "teambit.dependencies/pnpm",
+    "policy": {
+      "dependencies": {
+        "styled-components": "5.3.5",
+        "@mui/material": "5.0.1",
+        "@mui/styles": "5.4.1",
+        "@mui/icons-material": "5.3.1"
+      },
+      "peerDependencies": {
+        "typescript": "4.6.2",
+        "react": "^16.8.0 || ^17.0.2",
+        "react-dom": "^16.8.0 || ^17.0.2",
+        "@testing-library/react": "12.0.0",
+        "react-router-dom": "6.3.0",
+        "@emotion/react": "11.7.1",
+        "@emotion/styled": "11.6.0",
+        "@mui/material": "5.0.1",
+        "styled-components": "5.3.3",
+        "@mui/lab": "5.0.0-alpha.86",
+        "eslint": "8.12.0",
+        "@types/eslint": "8.4.1",
+        "@typescript-eslint/eslint-plugin": "5.15.0",
+        "@typescript-eslint/parser": "5.15.0",
+        "prettier": "2.6.2",
+        "@types/prettier": "2.4.4",
+        "jest": "^27.4.7",
+        "@testing-library/jest-dom": "5.16.1",
+        "babel-jest": "27.4.6",
+        "jest-styled-components": "7.0.8",
+        "@babel/preset-env": "7.16.8",
+        "@babel/preset-react": "7.16.7",
+        "@babel/preset-typescript": "7.16.7",
+        "@tiui/remote.configs.tiui-linter": "latest",
+        "@tiui/remote.configs.tiui-formatter": "latest",
+        "@tiui/remote.generators.app": "latest",
+        "@tiui/remote.pages.tiui.home": "latest",
+        "@tiui/remote.pages.tiui.login": "latest",
+        "@tiui/remote.gfi.providers.theme": "latest",
+        "@tiui/remote.aspects.scripts.update-wkspc": "latest",
+        "@tiui/remote.apps.base-app": "latest",
+        "@tiui/remote.pages.gfi-auth": "latest",
+        "@tiui/remote.gfi.ui.loader": "latest",
+        "dotenv": "16.0.0"
+      }
+    }
+  },
+  /**
+   * workspace variants allow to set different subsets of configuration for components in your
+   * workspace. this is extremely useful for upgrading, aligning and building components with a new
+   * set of dependencies. a rule can be a directory or a component-id/namespace, in which case,
+   * wrap the rule with curly brackets (e.g. `"{ui/*}": {}`)
+   * see https://bit.dev/docs/workspace/variants for more info.
+   **/
+  "teambit.workspace/variants": {
+    "*": {
+      "teambit.react/react": {}
+    }
+  },
+  "tiui.remote/generators/tiui-templates": {},
+  "tiui.remote/generators/app": {},
+  "tiui.remote/aspects/scripts/update-wkspc": {},
+  "tiui.remote/generators/gfi-app-templates": {}
+}

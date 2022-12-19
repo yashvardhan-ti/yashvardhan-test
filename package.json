@@ -1,0 +1,12 @@
+{
+  "name": "yashvardhan-test",
+  "version": "0.0.1",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watchAll",
+    "lint": "eslint remote --ext .ts,.tsx -c .eslintrc.js",
+    "lint:quiet": "eslint remote --ext .ts,.tsx --quiet",
+    "format:check": "prettier --check remote --config .prettierrc.js",
+    "format": "prettier --write remote --config .prettierrc.js"
+  }
+}
